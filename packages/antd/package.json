@@ -1,16 +1,15 @@
 {
-  "name": "@tboard-ui/antd-async-select",
+  "name": "@tboard-ui/antd",
   "version": "0.0.1",
-  "description": "antd-async-select",
+  "description": "react component based on antd",
   "keywords": ["react", "antd", "async", "select"],
   "author": "Seonghyeon Kim <impressor7@gmail.com>",
   "license": "MIT",
-  "main": "lib/antd-async-select.js",
+  "main": "lib/antd.js",
   "files": [
     "lib"
   ],
   "publishConfig": {
-    "access": "public",
     "registry": "https://registry.yarnpkg.com"
   },
   "repository": {
