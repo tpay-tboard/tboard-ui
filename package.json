@@ -4,8 +4,13 @@
   "version": "1.0.0",
   "author": "Seonghyeon Kim <impressor7@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "bootstrap": "lerna exec yarn",
+    "build": "lerna run build"
+  },
   "devDependencies": {
-    "lerna": "^3.22.1"
+    "lerna": "^3.22.1",
+    "microbundle": "^0.12.3"
   },
   "workspaces": [
     "packages/*"

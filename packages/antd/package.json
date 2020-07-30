@@ -10,9 +10,9 @@
   ],
   "author": "Seonghyeon Kim <impressor7@gmail.com>",
   "license": "MIT",
-  "main": "lib/antd.js",
   "files": [
-    "lib"
+    "README.md",
+    "dist"
   ],
   "publishConfig": {
     "access": "public",
@@ -22,8 +22,13 @@
     "type": "git",
     "url": "git+https://github.com/tpay-tboard/tboard-ui.git"
   },
+  "source": "lib/index.ts",
+  "types": "dist/index.d.ts",
+  "main": "dist/antd.js",
+  "module": "dist/antd.module.js",
+  "unpkg": "dist/antd.umd.js",
   "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "build": "microbundle --jsx React.createElement"
   },
   "bugs": {
     "url": "https://github.com/tpay-tboard/tboard-ui/issues"
@@ -31,5 +36,12 @@
   "homepage": "https://github.com/tpay-tboard/tboard-ui#readme",
   "peerDependencies": {
     "react": "^16.13.1"
+  },
+  "devDependencies": {
+    "@types/react": "^16.9.43",
+    "react": "^16.13.1"
+  },
+  "dependencies": {
+    "@tboard-ui/antd-async-select": "^0.0.1"
   }
 }

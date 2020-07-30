@@ -1,7 +1,1 @@
-'use strict';
-
-module.exports = antd;
-
-function antd() {
-    // TODO
-}
+export { default as AsyncSelect } from '@tboard-ui/antd-async-select';
