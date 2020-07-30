@@ -1,2 +1,8 @@
-dist
+# packages
 node_modules
+
+# build
+dist
+
+# storybook
+build-storybook.log
