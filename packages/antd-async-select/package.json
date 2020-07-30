@@ -2,7 +2,12 @@
   "name": "@tboard-ui/antd-async-select",
   "version": "0.0.1",
   "description": "antd-async-select",
-  "keywords": ["react", "antd", "async", "select"],
+  "keywords": [
+    "react",
+    "antd",
+    "async",
+    "select"
+  ],
   "author": "Seonghyeon Kim <impressor7@gmail.com>",
   "license": "MIT",
   "main": "lib/antd-async-select.js",
@@ -23,5 +28,8 @@
   "bugs": {
     "url": "https://github.com/tpay-tboard/tboard-ui/issues"
   },
-  "homepage": "https://github.com/tpay-tboard/tboard-ui#readme"
+  "homepage": "https://github.com/tpay-tboard/tboard-ui#readme",
+  "peerDependencies": {
+    "react": "^16.13.1"
+  }
 }

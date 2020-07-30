@@ -2,7 +2,12 @@
   "name": "@tboard-ui/antd",
   "version": "0.0.1",
   "description": "react component based on antd",
-  "keywords": ["react", "antd", "async", "select"],
+  "keywords": [
+    "react",
+    "antd",
+    "async",
+    "select"
+  ],
   "author": "Seonghyeon Kim <impressor7@gmail.com>",
   "license": "MIT",
   "main": "lib/antd.js",
@@ -10,6 +15,7 @@
     "lib"
   ],
   "publishConfig": {
+    "access": "public",
     "registry": "https://registry.yarnpkg.com"
   },
   "repository": {
@@ -22,5 +28,8 @@
   "bugs": {
     "url": "https://github.com/tpay-tboard/tboard-ui/issues"
   },
-  "homepage": "https://github.com/tpay-tboard/tboard-ui#readme"
+  "homepage": "https://github.com/tpay-tboard/tboard-ui#readme",
+  "peerDependencies": {
+    "react": "^16.13.1"
+  }
 }

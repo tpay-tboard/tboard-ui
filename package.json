@@ -1,9 +1,13 @@
 {
+  "private": true,
   "name": "tboard-ui",
   "version": "1.0.0",
   "author": "Seonghyeon Kim <impressor7@gmail.com>",
   "license": "MIT",
   "devDependencies": {
     "lerna": "^3.22.1"
-  }
+  },
+  "workspaces": [
+    "packages/*"
+  ]
 }
