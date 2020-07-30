@@ -1,0 +1,27 @@
+{
+  "name": "@tboard-ui/antd-async-select",
+  "version": "1.0.0",
+  "description": "antd-async-select",
+  "keywords": ["react", "antd", "async", "select"],
+  "author": "Seonghyeon Kim <impressor7@gmail.com>",
+  "license": "MIT",
+  "main": "lib/antd-async-select.js",
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.yarnpkg.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tpay-tboard/tboard-ui.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/tpay-tboard/tboard-ui/issues"
+  },
+  "homepage": "https://github.com/tpay-tboard/tboard-ui#readme"
+}
