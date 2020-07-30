@@ -4,15 +4,26 @@
   "version": "1.0.0",
   "author": "Seonghyeon Kim <impressor7@gmail.com>",
   "license": "MIT",
-  "scripts": {
-    "bootstrap": "lerna exec yarn",
-    "build": "lerna run build"
-  },
-  "devDependencies": {
-    "lerna": "^3.22.1",
-    "microbundle": "^0.12.3"
-  },
   "workspaces": [
     "packages/*"
-  ]
+  ],
+  "scripts": {
+    "bootstrap": "lerna exec yarn",
+    "build": "lerna run build",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.10.5",
+    "@storybook/addon-actions": "^5.3.19",
+    "@storybook/addon-links": "^5.3.19",
+    "@storybook/addons": "^5.3.19",
+    "@storybook/preset-typescript": "^3.0.0",
+    "@storybook/react": "^5.3.19",
+    "babel-loader": "^8.1.0",
+    "fork-ts-checker-webpack-plugin": "^5.0.12",
+    "lerna": "^3.22.1",
+    "microbundle": "^0.12.3",
+    "ts-loader": "^8.0.1"
+  }
 }
