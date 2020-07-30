@@ -1,3 +1,3 @@
-# `@tboard-ui/antd`
+# @tboard-ui/antd
 
-> react component based on antd
+React component based on antd
