@@ -16,7 +16,7 @@ export type Props = Omit<Partial<SelectType>, 'defaultValue'> & {
   /**
    * Event handler triggered when selected option changes
    */
-  onChange: (value: ValueType) => void;
+  onChange?: (value: ValueType) => void;
   /**
    * Selected option value
    */
