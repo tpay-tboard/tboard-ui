@@ -12,7 +12,8 @@
   "license": "MIT",
   "files": [
     "README.md",
-    "dist"
+    "dist",
+    "index.d.ts"
   ],
   "publishConfig": {
     "access": "public",
@@ -23,7 +24,6 @@
     "url": "git+https://github.com/tpay-tboard/tboard-ui.git"
   },
   "source": "lib/AntdAsyncSelect.tsx",
-  "types": "dist/index.d.ts",
   "main": "dist/antd-async-select.js",
   "module": "dist/antd-async-select.module.js",
   "unpkg": "dist/antd-async-select.umd.js",
