@@ -22,7 +22,7 @@
     "type": "git",
     "url": "git+https://github.com/tpay-tboard/tboard-ui.git"
   },
-  "source": "lib/index.tsx",
+  "source": "lib/AntdAsyncSelect.tsx",
   "types": "dist/index.d.ts",
   "main": "dist/antd-async-select.js",
   "module": "dist/antd-async-select.module.js",
