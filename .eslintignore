@@ -1,0 +1,9 @@
+# packages
+node_modules/*
+
+# configuration
+jest.config.js
+.eslintrc.js
+
+# build
+dist
