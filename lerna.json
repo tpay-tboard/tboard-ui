@@ -2,10 +2,9 @@
   "packages": [
     "packages/*"
   ],
-  "npmClient": "yarn",
   "version": "independent",
+  "hoist": true,
   "stream": true,
-  "useWorkspaces": true,
   "bootstrap": {
     "npmClientArgs": ["--no-package-lock"]
   }

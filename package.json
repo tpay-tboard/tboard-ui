@@ -1,22 +1,19 @@
 {
-  "private": true,
   "name": "tboard-ui",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "author": "Seonghyeon Kim <impressor7@gmail.com>",
   "license": "MIT",
-  "workspaces": [
-    "packages/*"
-  ],
   "scripts": {
-    "bootstrap": "lerna exec yarn",
+    "bootstrap": "lerna exec npm install",
     "build": "lerna run build",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "test": "jest --passWithNoTests",
     "test:watch": "jest --passWithNoTests --watch -o",
     "lint": "eslint -c .eslintrc.js --fix --ext .tsx,.ts,.js",
-    "prepublish": "yarn lint && yarn test",
-    "prepack": "yarn bootstrap && yarn build"
+    "prepublishOnly": "npm install lint && npm install test",
+    "prepack": "npm install bootstrap && npm install build",
+    "lerna:publish": "lerna publish from-git"
   },
   "devDependencies": {
     "@babel/core": "^7.10.5",
@@ -65,8 +62,8 @@
   },
   "lint-staged": {
     "\"packages/**/*.{js,jsx,ts,tsx}\"": [
-      "yarn lint",
-      "yarn test"
+      "npm run lint",
+      "npm run test"
     ]
   }
 }

@@ -1,6 +1,6 @@
 {
   "name": "@tboard-ui/antd-async-select",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "antd-async-select",
   "keywords": [
     "react",
@@ -16,7 +16,7 @@
   ],
   "publishConfig": {
     "access": "public",
-    "registry": "https://registry.yarnpkg.com"
+    "registry": "https://registry.npmjs.org"
   },
   "repository": {
     "type": "git",
@@ -43,5 +43,5 @@
     "antd": "^4.5.1",
     "react": "^16.13.1"
   },
-  "gitHead": "e3880c052a3a039fcffdb77c280e073975962067"
+  "gitHead": "6d74c1df9c76ef19901a43669eb6f11d1b36583f"
 }
