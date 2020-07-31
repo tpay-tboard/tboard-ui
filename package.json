@@ -16,8 +16,7 @@
     "test:watch": "jest --passWithNoTests --watch -o",
     "lint": "eslint -c .eslintrc.js --fix --ext .tsx,.ts,.js",
     "prepublish": "yarn lint && yarn test",
-    "prepack": "yarn bootstrap && yarn build",
-    "publish": "lerna publish"
+    "prepack": "yarn bootstrap && yarn build"
   },
   "devDependencies": {
     "@babel/core": "^7.10.5",

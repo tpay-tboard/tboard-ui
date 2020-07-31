@@ -43,5 +43,6 @@
   },
   "dependencies": {
     "@tboard-ui/antd-async-select": "^1.0.0"
-  }
+  },
+  "gitHead": "e3880c052a3a039fcffdb77c280e073975962067"
 }
