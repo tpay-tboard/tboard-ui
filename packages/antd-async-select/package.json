@@ -13,6 +13,7 @@
   "files": [
     "README.md",
     "dist",
+    "lib",
     "index.d.ts"
   ],
   "publishConfig": {
