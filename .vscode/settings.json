@@ -1,0 +1,12 @@
+{
+  "eslint.options": {
+    "configFile": "./.eslintrc.js"
+  },
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typesciprtreact",
+  ],
+  "typescript.tsdk": "node_modules/typescript/lib"
+}
