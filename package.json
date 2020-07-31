@@ -3,6 +3,10 @@
   "version": "0.0.0",
   "author": "Seonghyeon Kim <impressor7@gmail.com>",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tpay-tboard/tboard-ui.git"
+  },
   "scripts": {
     "bootstrap": "lerna exec npm install",
     "build": "lerna run build",
@@ -11,9 +15,9 @@
     "test": "jest --passWithNoTests",
     "test:watch": "jest --passWithNoTests --watch -o",
     "lint": "eslint -c .eslintrc.js --fix --ext .tsx,.ts,.js",
-    "prepublishOnly": "npm install lint && npm install test",
-    "prepack": "npm install bootstrap && npm install build",
-    "lerna:publish": "lerna publish from-git"
+    "prepublishOnly": "npm run lint && npm run test",
+    "prepack": "npm run bootstrap && npm run build",
+    "lerna:publish": "lerna publish"
   },
   "devDependencies": {
     "@babel/core": "^7.10.5",
