@@ -5,4 +5,5 @@ node_modules
 dist
 
 # storybook
+storybook-static
 build-storybook.log
