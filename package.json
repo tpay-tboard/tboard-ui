@@ -56,7 +56,7 @@
     }
   },
   "lint-staged": {
-    "\"src/**/*.{js,jsx,ts,tsx}\"": [
+    "\"packages/**/*.{js,jsx,ts,tsx}\"": [
       "yarn lint",
       "yarn test"
     ]
