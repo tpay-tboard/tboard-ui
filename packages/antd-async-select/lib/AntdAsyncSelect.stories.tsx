@@ -1,7 +1,8 @@
 import 'antd/dist/antd.css';
 
 import { withKnobs } from '@storybook/addon-knobs';
-import { Button, Select } from 'antd';
+import { Button, Form, Select } from 'antd';
+import { Store } from 'antd/lib/form/interface';
 import { SelectValue } from 'antd/lib/select';
 import React, { useRef, useState } from 'react';
 
@@ -35,123 +36,120 @@ const promiseFn = createMockGet<Record<string, string>>([
 ]);
 
 export const Default = () => {
-  const [selected, setSelected] = useState<ValueType>();
+  const [values, setValues] = useState<Record<string, ValueType>>();
 
-  const handleChange = (value: ValueType) => {
-    setSelected(value);
+  const createOnChange = (key: string) => (value: ValueType) => {
+    setValues((prev) => ({ ...prev, [key]: value }));
   };
 
   return (
     <div>
-      <div>Selected value: {selected}</div>
-      <AntdAsyncSelect
-        promiseFn={promiseFn}
-        value={selected}
-        onChange={handleChange}
-      />
+      <div style={{ marginBottom: 16 }}>
+        <h4>Only value</h4>
+        <div>Selected value: {values?.value1}</div>
+        <AntdAsyncSelect
+          promiseFn={promiseFn}
+          value={values?.value1}
+          onChange={createOnChange('value1')}
+        />
+      </div>
+      <div style={{ marginBottom: 16 }}>
+        <h4>Option In Value</h4>
+        <div>Selected value: {JSON.stringify(values?.value2)}</div>
+        <AntdAsyncSelect
+          optionInValue
+          promiseFn={promiseFn}
+          value={values?.value2}
+          onChange={createOnChange('value2')}
+        />
+      </div>
+      <div style={{ marginBottom: 16 }}>
+        <h4>Multiple Mode</h4>
+        <div>Selected value: {JSON.stringify(values?.value3)}</div>
+        <AntdAsyncSelect
+          promiseFn={promiseFn}
+          mode="multiple"
+          value={values?.value3}
+          onChange={createOnChange('value3')}
+        />
+      </div>
+      <div style={{ marginBottom: 16 }}>
+        <h4>Multiple Mode Option In Value</h4>
+        <div>Selected value: {JSON.stringify(values?.value4)}</div>
+        <AntdAsyncSelect
+          optionInValue
+          mode="multiple"
+          promiseFn={promiseFn}
+          value={values?.value4}
+          onChange={createOnChange('value4')}
+        />
+      </div>
+      <div style={{ marginBottom: 16 }}>
+        <h4>Tags Mode</h4>
+        <div>Selected value: {JSON.stringify(values?.value5)}</div>
+        <AntdAsyncSelect
+          mode="tags"
+          promiseFn={promiseFn}
+          value={values?.value5}
+          onChange={createOnChange('value5')}
+        />
+      </div>
+      <div style={{ marginBottom: 16 }}>
+        <h4>Tags Mode Option In Value</h4>
+        <div>Selected value: {JSON.stringify(values?.value6)}</div>
+        <AntdAsyncSelect
+          mode="tags"
+          optionInValue
+          promiseFn={promiseFn}
+          value={values?.value6}
+          onChange={createOnChange('value6')}
+        />
+      </div>
     </div>
   );
 };
 
-export const OptionInValue = () => {
-  const [selected, setSelected] = useState<ValueType>();
+export const WithFormItem = () => {
+  const [currentValues, setCurrentValues] = useState<Store>();
+  const [form] = Form.useForm();
 
-  const handleChange = (value: ValueType) => {
-    setSelected(value);
+  const handleValueChange = (changedValues: Store, values: Store) => {
+    setCurrentValues(values);
   };
 
   return (
-    <div>
-      <div>Selected value: {JSON.stringify(selected)}</div>
-      <AntdAsyncSelect
-        promiseFn={promiseFn}
-        optionInValue
-        value={selected}
-        onChange={handleChange}
-      />
-    </div>
-  );
-};
-
-export const MultipleMode = () => {
-  const [selected, setSelected] = useState<ValueType>();
-
-  const handleChange = (value: ValueType) => {
-    setSelected(value);
-  };
-
-  return (
-    <div>
-      <div>Selected value: {JSON.stringify(selected)}</div>
-      <AntdAsyncSelect
-        promiseFn={promiseFn}
-        mode="multiple"
-        value={selected}
-        onChange={handleChange}
-      />
-    </div>
-  );
-};
-
-export const MultipleModeOptionInValue = () => {
-  const [selected, setSelected] = useState<ValueType>();
-
-  const handleChange = (value: ValueType) => {
-    setSelected(value);
-  };
-
-  return (
-    <div>
-      <div>Selected value: {JSON.stringify(selected)}</div>
-      <AntdAsyncSelect
-        promiseFn={promiseFn}
-        mode="multiple"
-        optionInValue
-        value={selected}
-        onChange={handleChange}
-      />
-    </div>
-  );
-};
-
-export const TagMode = () => {
-  const [selected, setSelected] = useState<ValueType>();
-
-  const handleChange = (value: ValueType) => {
-    setSelected(value);
-  };
-
-  return (
-    <div>
-      <div>Selected value: {JSON.stringify(selected)}</div>
-      <AntdAsyncSelect
-        mode="tags"
-        value={selected}
-        promiseFn={promiseFn}
-        onChange={handleChange}
-      />
-    </div>
-  );
-};
-
-export const TagModeOptionInValue = () => {
-  const [selected, setSelected] = useState<ValueType>();
-
-  const handleChange = (value: ValueType) => {
-    setSelected(value);
-  };
-
-  return (
-    <div>
-      <div>Selected value: {JSON.stringify(selected)}</div>
-      <AntdAsyncSelect
-        mode="tags"
-        optionInValue
-        value={selected}
-        promiseFn={promiseFn}
-        onChange={handleChange}
-      />
-    </div>
+    <Form onValuesChange={handleValueChange} form={form}>
+      <h4>Only value</h4>
+      <p>selected: {currentValues?.value1}</p>
+      <Form.Item name="value1">
+        <AntdAsyncSelect promiseFn={promiseFn} />
+      </Form.Item>
+      <h4>Option In Value</h4>
+      <p>selected: {JSON.stringify(currentValues?.value2)}</p>
+      <Form.Item name="value2">
+        <AntdAsyncSelect promiseFn={promiseFn} optionInValue />
+      </Form.Item>
+      <h4>Multiple Mode</h4>
+      <p>selected: {JSON.stringify(currentValues?.value3)}</p>
+      <Form.Item name="value3">
+        <AntdAsyncSelect promiseFn={promiseFn} mode="multiple" />
+      </Form.Item>
+      <h4>Multiple Mode Option In Value</h4>
+      <p>selected: {JSON.stringify(currentValues?.value4)}</p>
+      <Form.Item name="value4">
+        <AntdAsyncSelect promiseFn={promiseFn} optionInValue mode="multiple" />
+      </Form.Item>
+      <h4>Tags Mode</h4>
+      <p>selected: {JSON.stringify(currentValues?.value5)}</p>
+      <Form.Item name="value5">
+        <AntdAsyncSelect promiseFn={promiseFn} mode="tags" />
+      </Form.Item>
+      <h4>Tags Mode Option In Value</h4>
+      <p>selected: {JSON.stringify(currentValues?.value6)}</p>
+      <Form.Item name="value6">
+        <AntdAsyncSelect promiseFn={promiseFn} optionInValue mode="tags" />
+      </Form.Item>
+    </Form>
   );
 };
 
