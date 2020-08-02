@@ -28,10 +28,10 @@ const createMockGet = <T extends unknown>(result: T[], delay = 300) => {
     });
 };
 
-const promiseFn = createMockGet<Record<string, string>>([
-  { id: '1', name: 'Option 1 (value: 1)' },
+const promiseFn = createMockGet<Record<string, string | number>>([
+  { id: 1, name: 'Option 1 (value: 1)' },
   { id: '2', name: 'Option 2 (value: 2)' },
-  { id: '3', name: 'Option 3 (value: 3)' },
+  { id: 3, name: 'Option 3 (value: 3)' },
   { id: '4', name: 'Option 4 (value: 4)' },
 ]);
 

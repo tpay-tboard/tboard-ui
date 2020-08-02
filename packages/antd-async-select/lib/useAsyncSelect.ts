@@ -92,9 +92,11 @@ const useAsyncSelect = ({
       selectedOptions.forEach((option: OptionType, index: number) => {
         if (option.value) {
           const theOption = options.find(
-            (item) => item[valueKey] === option.value.toString(),
+            (item) => item[valueKey].toString() === option.value,
           );
-          theOption && theOptions.push(theOption);
+          if (!theOption) return;
+          theOption[valueKey] = theOption[valueKey].toString();
+          theOptions.push(theOption);
 
           return;
         }
@@ -114,6 +116,7 @@ const useAsyncSelect = ({
           return;
         }
       });
+
       onChange(theOptions, selectedOptions);
     }
   };
