@@ -1,5 +1,5 @@
 import { Select } from 'antd';
-import { SelectValue } from 'antd/lib/select';
+import { SelectProps, SelectValue } from 'antd/lib/select';
 import {
   useCallback,
   useEffect,
@@ -8,7 +8,11 @@ import {
   useState,
 } from 'react';
 
-import { OptionType, Props as ComponentProps } from './AntdAsyncSelect';
+import {
+  OptionType,
+  Props as ComponentProps,
+  ValueType,
+} from './AntdAsyncSelect';
 
 type RequiredProps = Required<
   Pick<
@@ -60,26 +64,29 @@ const useAsyncSelect = ({
     }
   };
 
-  const handleChange = (value: SelectValue) => {
+  const handleChange: SelectProps<ValueType>['onChange'] = (value, option) => {
     if (!onChange) return;
 
     if (!optionInValue) {
-      onChange(value);
+      onChange(value, option);
     } else {
       const theOption = options.find(
         (option) => option[valueKey].toString() === value,
       );
-      theOption && onChange(theOption);
+      theOption && onChange(theOption, option);
     }
 
     handleBlur();
   };
 
-  const handleMultipleChange = (values: SelectValue, selectedOptions: any) => {
+  const handleMultipleChange: SelectProps<ValueType>['onChange'] = (
+    values,
+    selectedOptions,
+  ) => {
     if (!onChange) return;
 
     if (!optionInValue) {
-      onChange(values);
+      onChange(values, selectedOptions);
     } else {
       const theOptions = [] as OptionType[];
       selectedOptions.forEach((option: OptionType, index: number) => {
@@ -107,7 +114,7 @@ const useAsyncSelect = ({
           return;
         }
       });
-      onChange(theOptions);
+      onChange(theOptions, selectedOptions);
     }
   };
 
