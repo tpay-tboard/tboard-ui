@@ -99,6 +99,8 @@ const useAsyncSelect = ({
   }, [api, options.length]);
 
   useEffect(() => {
+    if (!mountRef.current) return;
+
     if (open) {
       handleLoadOptions();
     }
