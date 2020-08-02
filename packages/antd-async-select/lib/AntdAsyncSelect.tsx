@@ -1,8 +1,7 @@
-import { Select } from 'antd';
+import { Select, Spin } from 'antd';
 import { SelectProps, SelectValue } from 'antd/lib/select';
 import React, { ReactElement } from 'react';
 
-import NotFoundContent from './NotFoundContent';
 import useAsyncSelect from './useAsyncSelect';
 
 export type OptionType = Record<string, string | number>;
@@ -148,7 +147,7 @@ const AntdAsyncSslect = React.forwardRef<Select<SelectValue>, Props>(
         allowClear={allowClear}
         showSearch={showSearch}
         showArrow={showArrow}
-        notFoundContent={<NotFoundContent open={open} loading={loading} />}
+        notFoundContent={open && loading ? <Spin size="small" /> : undefined}
         onChange={handleChange}
         {...(block && { style: { ...rest.style, display: 'block' } })}
         {...rest}
