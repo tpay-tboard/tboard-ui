@@ -107,6 +107,7 @@ const AntdAsyncSslect = React.forwardRef<Select<SelectValue>, Props>(
       mode,
       value,
       disabled,
+      labelKey,
       valueKey,
       optionInValue,
       focusIfActive,
@@ -152,14 +153,16 @@ const AntdAsyncSslect = React.forwardRef<Select<SelectValue>, Props>(
         {...(block && { style: { ...rest.style, display: 'block' } })}
         {...rest}
       >
-        {options.map((option) => (
-          <Select.Option
-            key={option[valueKey].toString()}
-            value={option[valueKey].toString()}
-          >
-            {option[labelKey]}
-          </Select.Option>
-        ))}
+        {options.map((option) => {
+          return (
+            <Select.Option
+              key={option[valueKey].toString()}
+              value={option[valueKey].toString()}
+            >
+              {option[labelKey]}
+            </Select.Option>
+          );
+        })}
       </Select>
     );
   },

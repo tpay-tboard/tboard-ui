@@ -13,7 +13,12 @@ import { OptionType, Props as ComponentProps } from './AntdAsyncSelect';
 type RequiredProps = Required<
   Pick<
     ComponentProps,
-    'promiseFn' | 'disabled' | 'focusIfActive' | 'optionInValue' | 'valueKey'
+    | 'promiseFn'
+    | 'disabled'
+    | 'focusIfActive'
+    | 'optionInValue'
+    | 'valueKey'
+    | 'labelKey'
   >
 >;
 type OptionalProps = Partial<
@@ -32,6 +37,7 @@ const useAsyncSelect = ({
   ref,
   mode,
   value,
+  labelKey,
   valueKey,
   onChange,
   disabled,
@@ -76,11 +82,30 @@ const useAsyncSelect = ({
       onChange(values);
     } else {
       const theOptions = [] as OptionType[];
-      selectedOptions.forEach((option: OptionType) => {
-        const theOption = options.find(
-          (item) => item[valueKey] === option.value.toString(),
-        );
-        if (theOption) theOptions.push(theOption);
+      selectedOptions.forEach((option: OptionType, index: number) => {
+        if (option.value) {
+          const theOption = options.find(
+            (item) => item[valueKey] === option.value.toString(),
+          );
+          theOption && theOptions.push(theOption);
+
+          return;
+        }
+
+        // support option which does not exsists
+        if (mode === 'tags' && Array.isArray(values)) {
+          const addedValue = values[index] as string;
+          const newOption = {
+            [labelKey]: addedValue,
+            [valueKey]: addedValue,
+            __tagType: 'new',
+          };
+
+          setOptions((prev) => [...prev, newOption]);
+          theOptions.push(newOption);
+
+          return;
+        }
       });
       onChange(theOptions);
     }

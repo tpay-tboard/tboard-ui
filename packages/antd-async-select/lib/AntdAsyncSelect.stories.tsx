@@ -73,7 +73,7 @@ export const OptionInValue = () => {
   );
 };
 
-export const Multiple = () => {
+export const MultipleMode = () => {
   const [selected, setSelected] = useState<ValueType>();
 
   const handleChange = (value: ValueType) => {
@@ -93,7 +93,7 @@ export const Multiple = () => {
   );
 };
 
-export const MultipleOptionInValue = () => {
+export const MultipleModeOptionInValue = () => {
   const [selected, setSelected] = useState<ValueType>();
 
   const handleChange = (value: ValueType) => {
@@ -108,6 +108,47 @@ export const MultipleOptionInValue = () => {
         mode="multiple"
         optionInValue
         value={selected}
+        onChange={handleChange}
+      />
+    </div>
+  );
+};
+
+export const TagMode = () => {
+  const [selected, setSelected] = useState<ValueType>();
+
+  const handleChange = (value: ValueType) => {
+    setSelected(value);
+  };
+
+  return (
+    <div>
+      <div>Selected value: {JSON.stringify(selected)}</div>
+      <AntdAsyncSelect
+        mode="tags"
+        value={selected}
+        promiseFn={promiseFn}
+        onChange={handleChange}
+      />
+    </div>
+  );
+};
+
+export const TagModeOptionInValue = () => {
+  const [selected, setSelected] = useState<ValueType>();
+
+  const handleChange = (value: ValueType) => {
+    setSelected(value);
+  };
+
+  return (
+    <div>
+      <div>Selected value: {JSON.stringify(selected)}</div>
+      <AntdAsyncSelect
+        mode="tags"
+        optionInValue
+        value={selected}
+        promiseFn={promiseFn}
         onChange={handleChange}
       />
     </div>
