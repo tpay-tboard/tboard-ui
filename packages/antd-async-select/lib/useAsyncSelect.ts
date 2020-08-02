@@ -13,7 +13,7 @@ import { OptionType, Props as ComponentProps } from './AntdAsyncSelect';
 type RequiredProps = Required<
   Pick<
     ComponentProps,
-    'api' | 'disabled' | 'focusIfActive' | 'optionInValue' | 'valueKey'
+    'promiseFn' | 'disabled' | 'focusIfActive' | 'optionInValue' | 'valueKey'
   >
 >;
 type OptionalProps = Partial<
@@ -28,7 +28,7 @@ type Props = OptionalProps &
   };
 
 const useAsyncSelect = ({
-  api,
+  promiseFn,
   ref,
   mode,
   value,
@@ -91,12 +91,12 @@ const useAsyncSelect = ({
 
     try {
       setLoading(true);
-      const options = await api();
+      const options = await promiseFn();
       setOptions(options);
     } finally {
       setLoading(false);
     }
-  }, [api, options.length]);
+  }, [promiseFn, options.length]);
 
   useEffect(() => {
     if (!mountRef.current) return;

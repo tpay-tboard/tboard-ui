@@ -27,7 +27,7 @@ const createMockGet = <T extends unknown>(result: T[], delay = 300) => {
     });
 };
 
-const api = createMockGet<Record<string, string>>([
+const promiseFn = createMockGet<Record<string, string>>([
   { id: '1', name: 'Option 1 (value: 1)' },
   { id: '2', name: 'Option 2 (value: 2)' },
   { id: '3', name: 'Option 3 (value: 3)' },
@@ -44,7 +44,11 @@ export const Default = () => {
   return (
     <div>
       <div>Selected value: {selected}</div>
-      <AntdAsyncSelect api={api} value={selected} onChange={handleChange} />
+      <AntdAsyncSelect
+        promiseFn={promiseFn}
+        value={selected}
+        onChange={handleChange}
+      />
     </div>
   );
 };
@@ -60,7 +64,7 @@ export const OptionInValue = () => {
     <div>
       <div>Selected value: {JSON.stringify(selected)}</div>
       <AntdAsyncSelect
-        api={api}
+        promiseFn={promiseFn}
         optionInValue
         value={selected}
         onChange={handleChange}
@@ -80,7 +84,7 @@ export const Multiple = () => {
     <div>
       <div>Selected value: {JSON.stringify(selected)}</div>
       <AntdAsyncSelect
-        api={api}
+        promiseFn={promiseFn}
         mode="multiple"
         value={selected}
         onChange={handleChange}
@@ -100,7 +104,7 @@ export const MultipleOptionInValue = () => {
     <div>
       <div>Selected value: {JSON.stringify(selected)}</div>
       <AntdAsyncSelect
-        api={api}
+        promiseFn={promiseFn}
         mode="multiple"
         optionInValue
         value={selected}
@@ -130,7 +134,7 @@ export const OpenAndCloseSelectProgmatically = () => {
         </Button.Group>
       </div>
       <AntdAsyncSelect
-        api={api}
+        promiseFn={promiseFn}
         ref={selectRef}
         value={selected}
         onChange={handleChange}

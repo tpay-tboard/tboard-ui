@@ -12,7 +12,7 @@ export type Props = Omit<Partial<SelectType>, 'defaultValue'> & {
   /**
    * Promise to fetch options
    */
-  api: () => Promise<OptionType[]>;
+  promiseFn: () => Promise<OptionType[]>;
   /**
    * Event handler triggered when selected option changes
    */
@@ -74,7 +74,7 @@ export type Props = Omit<Partial<SelectType>, 'defaultValue'> & {
 const AntdAsyncSslect = React.forwardRef<Select<SelectValue>, Props>(
   (
     {
-      api,
+      promiseFn,
       labelKey = 'name',
       valueKey = 'id',
       optionFilterProp = 'children',
@@ -103,7 +103,7 @@ const AntdAsyncSslect = React.forwardRef<Select<SelectValue>, Props>(
       handleChange,
     } = useAsyncSelect({
       ref,
-      api,
+      promiseFn,
       mode,
       value,
       disabled,
