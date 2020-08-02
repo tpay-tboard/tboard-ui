@@ -10,12 +10,6 @@
   ],
   "author": "Seonghyeon Kim <impressor7@gmail.com>",
   "license": "MIT",
-  "files": [
-    "README.md",
-    "dist",
-    "lib",
-    "index.d.ts"
-  ],
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org"
