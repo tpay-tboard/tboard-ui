@@ -65,7 +65,7 @@
     }
   },
   "lint-staged": {
-    "\"packages/**/*.{js,jsx,ts,tsx}\"": [
+    "packages/**/*.{js,jsx,ts,tsx}": [
       "npm run lint",
       "npm run test"
     ]

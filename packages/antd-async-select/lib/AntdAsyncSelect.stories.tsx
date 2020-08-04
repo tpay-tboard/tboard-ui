@@ -33,6 +33,8 @@ const promiseFn = createMockGet<Record<string, string | number>>([
   { id: '2', name: 'Option 2 (value: 2)' },
   { id: 3, name: 'Option 3 (value: 3)' },
   { id: '4', name: 'Option 4 (value: 4)' },
+  { id: 5, name: 'Option 5 (value: 5)' },
+  { id: '6', name: 'Option 5 (value: 6)' },
 ]);
 
 export const Default = () => {
