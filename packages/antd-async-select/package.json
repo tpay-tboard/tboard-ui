@@ -23,6 +23,7 @@
   "module": "dist/antd-async-select.module.js",
   "unpkg": "dist/antd-async-select.umd.js",
   "scripts": {
+    "clear": "rm -rf dist",
     "build": "microbundle --jsx React.createElement"
   },
   "bugs": {

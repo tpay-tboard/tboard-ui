@@ -24,6 +24,7 @@
   "module": "dist/antd.module.js",
   "unpkg": "dist/antd.umd.js",
   "scripts": {
+    "clear": "rm -rf dist",
     "build": "microbundle --jsx React.createElement"
   },
   "bugs": {

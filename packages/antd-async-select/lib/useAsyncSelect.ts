@@ -142,6 +142,12 @@ const useAsyncSelect = ({
   }, [handleLoadOptions, open]);
 
   useEffect(() => {
+    if (!mountRef.current) return;
+
+    setOptions([]);
+  }, [promiseFn]);
+
+  useEffect(() => {
     if (!value) return;
     handleLoadOptions();
   }, [handleLoadOptions, value]);
