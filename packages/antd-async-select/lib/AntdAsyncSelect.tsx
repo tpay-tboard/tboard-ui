@@ -128,7 +128,7 @@ const AntdAsyncSslect = React.forwardRef<Select<SelectValue>, Props>(
         case typeof value === 'object':
           return (value as OptionType)[valueKey].toString();
         default:
-          return value?.toString() as SelectValue;
+          return value ? (value.toString() as SelectValue) : undefined;
       }
     })();
 

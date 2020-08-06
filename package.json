@@ -56,7 +56,7 @@
     "jest": "^26.2.1",
     "lerna": "^3.22.1",
     "lint-staged": "^10.2.11",
-    "microbundle": "^0.12.0-next.9",
+    "microbundle": "^0.12.3",
     "prettier": "^2.0.5",
     "react": "^16.13.1",
     "react-is": "^16.13.1",
