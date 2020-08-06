@@ -122,7 +122,7 @@ const useAsyncSelect = ({
   };
 
   const handleLoadOptions = useCallback(async () => {
-    if (options.length > 0) return;
+    if (options.length > 0 || loading) return;
 
     try {
       setLoading(true);
@@ -131,7 +131,7 @@ const useAsyncSelect = ({
     } finally {
       setLoading(false);
     }
-  }, [promiseFn, options.length]);
+  }, [options.length, loading, promiseFn]);
 
   useEffect(() => {
     if (!mountRef.current) return;
@@ -148,9 +148,14 @@ const useAsyncSelect = ({
   }, [promiseFn]);
 
   useEffect(() => {
+    if (
+      (mode === 'multiple' || mode === 'tags') &&
+      (!value || (Array.isArray(value) && value.length === 0))
+    )
+      return;
     if (!value) return;
     handleLoadOptions();
-  }, [handleLoadOptions, value]);
+  }, [handleLoadOptions, mode, value]);
 
   useEffect(() => {
     if (mountRef.current && !disabled && focusIfActive && selectRef.current) {
