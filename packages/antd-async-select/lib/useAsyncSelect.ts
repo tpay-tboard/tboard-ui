@@ -142,9 +142,9 @@ const useAsyncSelect = ({
   }, [handleLoadOptions, open]);
 
   useEffect(() => {
-    if (!value && options.length === 0) return;
+    if (!value) return;
     handleLoadOptions();
-  }, [handleLoadOptions, options.length, value]);
+  }, [handleLoadOptions, value]);
 
   useEffect(() => {
     if (mountRef.current && !disabled && focusIfActive && selectRef.current) {
