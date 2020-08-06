@@ -1,6 +1,6 @@
 {
   "name": "@tboard-ui/antd",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "react component based on antd",
   "keywords": [
     "react",
@@ -40,7 +40,7 @@
     "react": "^16.13.1"
   },
   "dependencies": {
-    "@tboard-ui/antd-async-select": "^1.0.10"
+    "@tboard-ui/antd-async-select": "^1.0.11"
   },
   "gitHead": "6d74c1df9c76ef19901a43669eb6f11d1b36583f"
 }
