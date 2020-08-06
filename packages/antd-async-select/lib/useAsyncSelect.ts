@@ -142,10 +142,9 @@ const useAsyncSelect = ({
   }, [handleLoadOptions, open]);
 
   useEffect(() => {
-    if (!value) return;
+    if (!value && options.length === 0) return;
     handleLoadOptions();
-    // eslint-disable-next-line
-  }, []);
+  }, [handleLoadOptions, options.length, value]);
 
   useEffect(() => {
     if (mountRef.current && !disabled && focusIfActive && selectRef.current) {

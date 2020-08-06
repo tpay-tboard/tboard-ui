@@ -181,3 +181,30 @@ export const OpenAndCloseSelectProgmatically = () => {
     </div>
   );
 };
+
+export const WhenValueChanges = () => {
+  const [selected, setSelected] = useState<ValueType>();
+
+  const handleChange = (value: ValueType) => {
+    setSelected(value);
+  };
+
+  const handleAddValue = () => {
+    setSelected(1);
+  };
+
+  return (
+    <div>
+      <div style={{ marginBottom: 16 }}>
+        <Button.Group>
+          <Button onClick={handleAddValue}>Add Value</Button>
+        </Button.Group>
+      </div>
+      <AntdAsyncSelect
+        promiseFn={promiseFn}
+        value={selected}
+        onChange={handleChange}
+      />
+    </div>
+  );
+};
