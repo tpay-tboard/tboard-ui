@@ -55,6 +55,7 @@
     "husky": "^4.2.5",
     "jest": "^26.2.1",
     "lerna": "^3.22.1",
+    "lerna-update-wizard": "^0.17.8",
     "lint-staged": "^10.2.11",
     "microbundle": "^0.12.3",
     "prettier": "^2.0.5",
