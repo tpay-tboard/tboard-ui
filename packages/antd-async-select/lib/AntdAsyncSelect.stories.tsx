@@ -1,5 +1,3 @@
-import 'antd/dist/antd.css';
-
 import { withKnobs } from '@storybook/addon-knobs';
 import { Button, Form, Select } from 'antd';
 import { Store } from 'antd/lib/form/interface';

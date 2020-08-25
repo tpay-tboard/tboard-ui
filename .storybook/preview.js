@@ -1,3 +1,5 @@
+import 'antd/dist/antd.css';
+
 import React from 'react';
 import { addDecorator } from '@storybook/react';
 import { addParameters } from '@storybook/client-api';
