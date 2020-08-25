@@ -1,6 +1,6 @@
 import { Select, Spin } from 'antd';
 import { SelectProps, SelectValue } from 'antd/lib/select';
-import React, { ReactElement } from 'react';
+import React from 'react';
 
 import useAsyncSelect from './useAsyncSelect';
 
@@ -89,9 +89,9 @@ const AntdAsyncSslect = React.forwardRef<Select<SelectValue>, Props>(
       value,
       onChange,
       ...rest
-    }: Props,
+    },
     ref,
-  ): ReactElement => {
+  ) => {
     const {
       open,
       options,

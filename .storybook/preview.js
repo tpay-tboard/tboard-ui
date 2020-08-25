@@ -20,7 +20,6 @@ const StoryContainer = ({ children }) => {
   return <div style={containerStyles}>{children}</div>;
 }
 
-
 addDecorator(story => (
   <StoryContainer>{story()}</StoryContainer>
 ))

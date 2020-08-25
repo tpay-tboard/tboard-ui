@@ -1,7 +1,7 @@
 import { Input } from 'antd';
-import React, { ReactElement } from 'react';
+import React from 'react';
 
-export type Props = React.ComponentProps<typeof Input> & {
+export type Props = {
   /**
    * Component displayed after input field
    */
@@ -42,13 +42,10 @@ export type Props = React.ComponentProps<typeof Input> & {
    * Input value
    */
   value?: string;
-};
+} & React.ComponentProps<typeof Input>;
 
 const AntdInputNumber = React.forwardRef<Input, Props>(
-  (
-    { disabled = false, allowClear = true, ...rest }: Props,
-    ref,
-  ): ReactElement => {
+  ({ disabled = false, allowClear = true, ...rest }, ref) => {
     return (
       <Input disabled={disabled} allowClear={allowClear} ref={ref} {...rest} />
     );

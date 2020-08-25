@@ -1,4 +1,3 @@
-import { withKnobs } from '@storybook/addon-knobs';
 import { Button, Form, Select } from 'antd';
 import { Store } from 'antd/lib/form/interface';
 import { SelectValue } from 'antd/lib/select';
@@ -10,7 +9,6 @@ export default {
   component: AntdAsyncSelect,
   title: 'AntdAsyncSelect',
   excludeStories: /.*Data$/,
-  decorators: [withKnobs],
   parameters: {
     componentSubtitle:
       'component which is able to handle async option fethcing',

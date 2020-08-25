@@ -1,4 +1,3 @@
-import { withKnobs } from '@storybook/addon-knobs';
 import React from 'react';
 
 import AntdInputNumber from './AntdInputNumber';
@@ -7,7 +6,6 @@ export default {
   component: AntdInputNumber,
   title: 'AntdInputNumber',
   excludeStories: /.*Data$/,
-  decorators: [withKnobs],
   parameters: {
     componentSubtitle:
       'component which enhance antd input to be used as inputNumber',
