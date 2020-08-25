@@ -1,6 +1,6 @@
 {
   "name": "@tboard-ui/antd-input-number",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "antd-input-number",
   "keywords": [
     "react",
@@ -10,13 +10,18 @@
   "author": "Seonghyeon Kim <impressor7@gmail.com>",
   "homepage": "https://github.com/tpay-tboard/tboard-ui#readme",
   "license": "MIT",
-  "main": "dist/antd-input-number.js",
-  "module": "dist/antd-input-number.module.js",
-  "unpkg": "dist/antd-input-number.umd.js",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/tpay-tboard/tboard-ui.git"
   },
+  "source": "lib/AntdInputNumber.tsx",
+  "main": "dist/antd-input-number.js",
+  "module": "dist/antd-input-number.module.js",
+  "unpkg": "dist/antd-input-number.umd.js",
   "scripts": {
     "clear": "rm -rf dist",
     "build": "microbundle --jsx React.createElement"
@@ -32,5 +37,6 @@
   "peerDependencies": {
     "antd": "^4.6.1",
     "react": "^16.13.1"
-  }
+  },
+  "gitHead": "2cb6579dc2efaefd808d3e56722d0d1952ff1e5a"
 }
