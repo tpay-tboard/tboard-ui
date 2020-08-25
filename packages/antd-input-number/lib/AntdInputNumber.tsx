@@ -69,7 +69,7 @@ const AntdInputNumber = React.forwardRef<Input, Props>(
       onBlur,
       value,
       step = 1,
-      showStepButtons = false,
+      showStepButtons = true,
       disabled = false,
       allowClear = true,
       withComma = true,
