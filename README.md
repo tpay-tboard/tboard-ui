@@ -25,6 +25,10 @@ npm run lerna:bootstrap
 
 ```shellscript
 npx lernaupdate
+
+# you need to delete package-lock.json generated in each packages manually for now
+# delete each packages' node_modules
+npm run lerna:bootsrap
 ```
 
 ## Development
