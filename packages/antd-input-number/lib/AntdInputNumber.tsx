@@ -45,11 +45,13 @@ export type Props = React.ComponentProps<typeof Input> & {
 };
 
 const AntdInputNumber = React.forwardRef<Input, Props>(
-  (props: Props, ref): ReactElement => {
-    return <div>test</div>;
-    // return (
-    //   <Input disabled={disabled} allowClear={allowClear} ref={ref} {...rest} />
-    // );
+  (
+    { disabled = false, allowClear = true, ...rest }: Props,
+    ref,
+  ): ReactElement => {
+    return (
+      <Input disabled={disabled} allowClear={allowClear} ref={ref} {...rest} />
+    );
   },
 );
 
