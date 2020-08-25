@@ -32,12 +32,12 @@
   },
   "homepage": "https://github.com/tpay-tboard/tboard-ui#readme",
   "peerDependencies": {
-    "antd": "4.5.4",
-    "react": "^16.13.1"
+    "antd": "4.6.1",
+    "react": "16.13.1"
   },
   "devDependencies": {
-    "@types/react": "^16.9.43",
-    "antd": "^4.5.4",
+    "@types/react": "^16.9.46",
+    "antd": "^4.6.1",
     "react": "^16.13.1"
   },
   "dependencies": {
