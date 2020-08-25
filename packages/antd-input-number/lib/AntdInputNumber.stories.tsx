@@ -1,4 +1,4 @@
-import { Form } from 'antd';
+import { Button, Form } from 'antd';
 import { Store } from 'antd/lib/form/interface';
 import React, { useState } from 'react';
 
@@ -20,6 +20,10 @@ export const Default = () => {
 
   const handleValueChange = (_: Store, values: Store) => {
     setValues(values);
+  };
+
+  const handleSetInputNumberValue = () => {
+    form.setFieldsValue({ input5: 10 });
   };
 
   return (
@@ -72,6 +76,27 @@ export const Default = () => {
         <p>Current value: {values.input4}</p>
         <Form.Item name="input4">
           <AntdInputNumber prefix="₩" />
+        </Form.Item>
+      </div>
+      <div style={{ marginBottom: 16 }}>
+        <h4>form.setFieldsValue</h4>
+        <Button onClick={handleSetInputNumberValue}>Set Value to 10</Button>
+        <Form.Item
+          noStyle
+          shouldUpdate={(prev, cur) => prev.input5 !== cur.input5}
+        >
+          {({ getFieldValue }) => {
+            const input5 = getFieldValue('input5');
+
+            return (
+              <>
+                <p>Current value: {input5}</p>
+                <Form.Item name="input5">
+                  <AntdInputNumber prefix="₩" />
+                </Form.Item>
+              </>
+            );
+          }}
         </Form.Item>
       </div>
     </Form>

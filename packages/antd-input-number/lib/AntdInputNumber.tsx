@@ -1,5 +1,5 @@
 import { Button, Input } from 'antd';
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 
 export type Props = {
   /**
@@ -77,12 +77,14 @@ const AntdInputNumber = React.forwardRef<Input, Props>(
     },
     ref,
   ) => {
-    const [internalValue, setInternalValue] = useState('');
     const formatter = useMemo(() => {
       return withComma
         ? (value: number) => new Intl.NumberFormat().format(value)
         : (value: number) => value.toString();
     }, [withComma]);
+    const [internalValue, setInternalValue] = useState(
+      value ? formatter(value) : undefined,
+    );
 
     const handleChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
       const { value } = e.currentTarget;
@@ -140,6 +142,13 @@ const AntdInputNumber = React.forwardRef<Input, Props>(
       setInternalValue(formatter(updatedValue));
       onChange && onChange(updatedValue);
     };
+
+    useEffect(() => {
+      const current = value ? formatter(value) : undefined;
+      if (current === internalValue) return;
+      setInternalValue(current);
+      // eslint-disable-next-line
+    }, [value]);
 
     return (
       <Input
