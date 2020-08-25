@@ -83,14 +83,14 @@ const AntdInputNumber = React.forwardRef<Input, Props>(
         : (value: number) => value.toString();
     }, [withComma]);
     const [internalValue, setInternalValue] = useState(
-      value ? formatter(value) : undefined,
+      typeof value === 'number' ? formatter(value) : undefined,
     );
 
     const handleChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
       const { value } = e.currentTarget;
       const intValue = parseInt(value.replace(/,/g, ''), 10);
 
-      if (!value) {
+      if (value === '') {
         setInternalValue(value);
         onChange && onChange(value);
 
@@ -144,7 +144,7 @@ const AntdInputNumber = React.forwardRef<Input, Props>(
     };
 
     useEffect(() => {
-      const current = value ? formatter(value) : undefined;
+      const current = typeof value == 'number' ? formatter(value) : undefined;
       if (current === internalValue) return;
       setInternalValue(current);
       // eslint-disable-next-line
