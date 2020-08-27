@@ -165,6 +165,7 @@ const AntdInputNumber = React.forwardRef<Input, Props>(
               type="text"
               size="small"
               name="minus"
+              disabled={disabled}
               onClick={handleStepButtonClick}
             >
               -
@@ -175,6 +176,7 @@ const AntdInputNumber = React.forwardRef<Input, Props>(
               type="text"
               size="small"
               name="plus"
+              disabled={disabled}
               onClick={handleStepButtonClick}
             >
               +

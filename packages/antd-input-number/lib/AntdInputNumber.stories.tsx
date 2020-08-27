@@ -99,6 +99,26 @@ export const Default = () => {
           }}
         </Form.Item>
       </div>
+      <div style={{ marginBottom: 16 }}>
+        <h4>disabled</h4>
+        <Form.Item
+          noStyle
+          shouldUpdate={(prev, cur) => prev.input6 !== cur.input6}
+        >
+          {({ getFieldValue }) => {
+            const input6 = getFieldValue('input6');
+
+            return (
+              <>
+                <p>Current value: {input6}</p>
+                <Form.Item name="input6">
+                  <AntdInputNumber disabled />
+                </Form.Item>
+              </>
+            );
+          }}
+        </Form.Item>
+      </div>
     </Form>
   );
 };
