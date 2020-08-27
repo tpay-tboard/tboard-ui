@@ -1,5 +1,6 @@
 import { Button, Input } from 'antd';
 import React, { useEffect, useMemo, useState } from 'react';
+import styled from 'styled-components';
 
 export type Props = {
   /**
@@ -151,42 +152,54 @@ const AntdInputNumber = React.forwardRef<Input, Props>(
     }, [value]);
 
     return (
-      <Input
-        {...rest}
-        ref={ref}
-        disabled={disabled}
-        allowClear={allowClear}
-        value={internalValue}
-        onBlur={handleBlur}
-        onChange={handleChange}
-        {...(showStepButtons && {
-          addonBefore: (
-            <Button
-              type="text"
-              size="small"
-              name="minus"
-              disabled={disabled}
-              onClick={handleStepButtonClick}
-            >
-              -
-            </Button>
-          ),
-          addonAfter: (
-            <Button
-              type="text"
-              size="small"
-              name="plus"
-              disabled={disabled}
-              onClick={handleStepButtonClick}
-            >
-              +
-            </Button>
-          ),
-        })}
-      />
+      <Container>
+        <Input
+          {...rest}
+          ref={ref}
+          disabled={disabled}
+          allowClear={allowClear}
+          value={internalValue}
+          onBlur={handleBlur}
+          onChange={handleChange}
+          {...(showStepButtons && {
+            addonBefore: (
+              <StyledButton
+                type="text"
+                size="small"
+                name="minus"
+                disabled={disabled}
+                onClick={handleStepButtonClick}
+              >
+                -
+              </StyledButton>
+            ),
+            addonAfter: (
+              <StyledButton
+                type="text"
+                size="small"
+                name="plus"
+                disabled={disabled}
+                onClick={handleStepButtonClick}
+              >
+                +
+              </StyledButton>
+            ),
+          })}
+        />
+      </Container>
     );
   },
 );
+
+const Container = styled.div`
+  & .ant-input-group-addon {
+    padding: 0;
+  }
+`;
+
+const StyledButton = styled(Button)`
+  width: 40px;
+`;
 
 AntdInputNumber.displayName = 'AntdInputNumber';
 export default AntdInputNumber;
