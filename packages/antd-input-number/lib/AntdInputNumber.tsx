@@ -140,6 +140,8 @@ const AntdInputNumber = React.forwardRef<Input, Props>(
       e.stopPropagation();
       const { name } = e.currentTarget;
       const updatedValue = (value || 0) + step * (name === 'plus' ? 1 : -1);
+      if ((max && updatedValue > max) || (min && updatedValue < min)) return;
+
       setInternalValue(formatter(updatedValue));
       onChange && onChange(updatedValue);
     };
