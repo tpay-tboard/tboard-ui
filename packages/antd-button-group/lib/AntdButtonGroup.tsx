@@ -16,15 +16,15 @@ type BaseProps = {
 };
 
 type SigleOptionProps = BaseProps & {
-  value: string;
   multiple?: false;
-  onChange: (value: string) => void;
+  value?: string;
+  onChange?: (value: string) => void;
 };
 
 type MultipleOptionProps = BaseProps & {
-  value: string[];
   multiple: true;
-  onChange: (value: string[]) => void;
+  value?: string[];
+  onChange?: (value: string[]) => void;
 };
 
 export type Props = SigleOptionProps | MultipleOptionProps;
@@ -41,33 +41,36 @@ const AntdButtonGroup: FC<Props> = (props) => {
       if (!newValue) return;
 
       if (!props.multiple) {
-        newValue !== value && props.onChange(newValue);
+        newValue !== value && props.onChange && props.onChange(newValue);
 
         return;
       }
 
+      const values = props.value || [];
       const allOption = options.find((option) => option.all);
-      const included = props.value.includes(newValue);
+      const included = values.includes(newValue);
       const shouldBeReset =
         allButton ||
-        (!included && props.value.length + 1 === options.length - 1) ||
-        (included && props.value.length === 1);
+        (!included && values.length + 1 === options.length - 1) ||
+        (included && values.length === 1);
 
       if (shouldBeReset) {
-        allOption && props.onChange([allOption.value]);
+        allOption && props.onChange && props.onChange([allOption.value]);
 
         return;
       }
 
       if (included) {
-        props.onChange(props.value.filter((item) => item !== newValue));
+        props.onChange &&
+          props.onChange(values.filter((item) => item !== newValue));
 
         return;
       }
 
       allOption &&
+        props.onChange &&
         props.onChange(
-          [...props.value, newValue].filter((item) => item !== allOption.value),
+          [...values, newValue].filter((item) => item !== allOption.value),
         );
     },
     [options, props, value],
@@ -81,7 +84,7 @@ const AntdButtonGroup: FC<Props> = (props) => {
           const active =
             typeof value === 'string'
               ? value === optionValue
-              : value.includes(optionValue);
+              : (value || []).includes(optionValue);
           const buttonType = active ? 'primary' : 'default';
 
           return (
