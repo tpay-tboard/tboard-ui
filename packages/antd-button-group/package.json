@@ -1,0 +1,41 @@
+{
+  "name": "@tboard-ui/antd-button-group",
+  "version": "0.0.0",
+  "description": "antd-button-group",
+  "keywords": [
+    "react",
+    "antd",
+    "buttonGroup"
+  ],
+  "author": "Seonghyeon Kim <impressor7@gmail.com>",
+  "homepage": "https://github.com/tpay-tboard/tboard-ui#readme",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "source": "lib/AntdButtonGroup.tsx",
+  "main": "dist/antd-async-select.js",
+  "module": "dist/antd-async-select.module.js",
+  "unpkg": "dist/antd-async-select.umd.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tpay-tboard/tboard-ui.git"
+  },
+  "scripts": {
+    "clear": "rm -rf dist",
+    "build": "microbundle --jsx React.createElement"
+  },
+  "bugs": {
+    "url": "https://github.com/tpay-tboard/tboard-ui/issues"
+  },
+  "peerDependencies": {
+    "antd": "4.6.1",
+    "react": "16.13.1"
+  },
+  "devDependencies": {
+    "@types/react": "^16.9.46",
+    "antd": "^4.6.1",
+    "react": "^16.13.1"
+  }
+}
