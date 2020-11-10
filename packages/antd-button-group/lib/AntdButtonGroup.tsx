@@ -65,9 +65,10 @@ const AntdButtonGroup: FC<Props> = (props) => {
         return;
       }
 
-      props.onChange(
-        [...props.value, newValue].filter((item) => item !== allOption?.value),
-      );
+      allOption &&
+        props.onChange(
+          [...props.value, newValue].filter((item) => item !== allOption.value),
+        );
     },
     [options, props, value],
   );
